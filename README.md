@@ -28,8 +28,8 @@ dotnet run
 
 [NodeJS](https://nodejs.org/en/download/)
 
+Open the WebApplication1/frontend directory and start the following command
 ```bash
-cd ./frontend/
 npm install
 ```
 
@@ -39,4 +39,4 @@ npm install
 npm run build
 ```
 
-The project will build in a dist directory
+The project will build in a 'static' directory
