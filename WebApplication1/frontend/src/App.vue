@@ -1,27 +1,21 @@
 <template> 
   <div id="root">
     <h1> Pixel warS </h1>
-    <Field/>
+    <Field :j='j'/>
   </div>
 </template>
 
 <script>
-import { onMounted, onBeforeMount } from 'vue';
-import Field from './components/Field.vue';
-
+  import Field from './components/Field.vue';
   export default {
     components: { Field },
 
     data() {
-        return {};
-    }
-  };
-  onBeforeMount (
-    console.log('beforeMount')
-  )
-  onMounted (
-    console.log('dsadas')
-  )
+        return {
+          j: 1,
+        };
+    },
+  }
 </script>
 
 <style>
