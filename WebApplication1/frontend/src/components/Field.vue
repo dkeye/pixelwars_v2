@@ -1,5 +1,4 @@
 <template>
-    {{j}}
     <canvas ref='myCanvas' id="mainCanvas">
     </canvas>
 </template>
@@ -7,17 +6,6 @@
 <script>
  
 export default {
-        data() {
-            return {
-
-            };
-        },
-
-        props: {
-            j: {
-                type: Number,
-            }
-        },
 
         beforeMount() {
             console.log('beforeMount');
@@ -38,16 +26,6 @@ export default {
             } 
             console.log('mounted\n', ctx)
         },
-
-        beforeUpdate() {
-            console.log('beforeUpdate');
-        },
-
-        updated() {
-            console.log('updated');
-        }
-
-
     };
 
 

@@ -1,7 +1,7 @@
 <template> 
   <div id="root">
     <h1> Pixel warS </h1>
-    <Field :j='j'/>
+    <Field/>
   </div>
 </template>
 
@@ -12,7 +12,6 @@
 
     data() {
         return {
-          j: 1,
         };
     },
   }
