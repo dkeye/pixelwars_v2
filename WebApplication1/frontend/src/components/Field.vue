@@ -7,10 +7,6 @@
  
 export default {
 
-        beforeMount() {
-            console.log('beforeMount');
-        },
-
         mounted() {
             const ctx = this.$refs.myCanvas.getContext('2d') 
             // ctx.fillStyle = 'green';
