@@ -6,22 +6,15 @@
 </template>
 
 <script>
-import { onMounted, onBeforeMount } from 'vue';
-import Field from './components/Field.vue';
-
+  import Field from './components/Field.vue';
   export default {
     components: { Field },
 
     data() {
-        return {};
-    }
-  };
-  onBeforeMount (
-    console.log('beforeMount')
-  )
-  onMounted (
-    console.log('dsadas')
-  )
+        return {
+        };
+    },
+  }
 </script>
 
 <style>
