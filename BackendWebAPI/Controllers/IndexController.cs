@@ -10,7 +10,7 @@ namespace ReturnHTMLFromASPNETCoreWebAPI.Controllers
         [HttpGet]
         public ContentResult Index()
         {
-            var html = System.IO.File.ReadAllText(@$"{Directory.GetParent(Directory.GetCurrentDirectory())}\static\index.html");
+            var html = System.IO.File.ReadAllText(@"./index.html");
 
             return base.Content(html, "text/html");
         }

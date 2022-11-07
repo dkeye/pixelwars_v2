@@ -1,26 +1,38 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template> 
+  <div id="root">
+    <h1> Pixel warS </h1>
+    <Field/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Field from './components/Field.vue';
+  export default {
+    components: { Field },
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+    data() {
+        return {
+        };
+    },
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  h1 {
+    font-size: 35px;
+    line-height: 30px;
+    letter-spacing: 8px;
+    position: absolute;
+    top: 50px;
+    font-family: monospace;
+  }
+  #root {
+    background: #ddd1d1;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 </style>

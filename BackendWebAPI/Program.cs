@@ -1,5 +1,5 @@
-var builder = WebApplication.CreateBuilder(
-    new WebApplicationOptions { WebRootPath = "../static" });  // изменяем папку для хранения статики
+var builder = WebApplication.CreateBuilder(args);
+//    new WebApplicationOptions { WebRootPath = "../static" });  // изменяем папку для хранения статики
 
 // Add services to the container.
 
