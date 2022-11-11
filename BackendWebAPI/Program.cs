@@ -1,9 +1,15 @@
-var builder = WebApplication.CreateBuilder(
-    new WebApplicationOptions { WebRootPath = "../static" });  // изменяем папку для хранения статики
+using BackendWebAPI.Models;
+using BackendWebAPI.Services;
+using Microsoft.EntityFrameworkCore;
+
+
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions { WebRootPath = "../static" });  // изменяем папку для хранения статики
 
 // Add services to the container.
-
+builder.Services.Configure<PixelWarsDatabaseSettings>(builder.Configuration.GetSection("PixelWarsDatabase"));
+builder.Services.AddSingleton<PixelWarsService>();
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

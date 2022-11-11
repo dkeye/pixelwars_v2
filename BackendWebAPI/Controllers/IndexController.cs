@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ReturnHTMLFromASPNETCoreWebAPI.Controllers
 {
-    [Route("api")]
+    [Route("Index")]
     [ApiController]
     public class IndexController : ControllerBase
     {
@@ -14,21 +14,5 @@ namespace ReturnHTMLFromASPNETCoreWebAPI.Controllers
 
             return base.Content(html, "text/html");
         }
-
-
-
-
-        /*
-        [HttpGet]
-        public ContentResult Index()
-        {
-            var html = System.IO.File.ReadAllText(@"D:\VisualStudioRepos\BackendWebAPI\static\index.html");            
-
-            return base.Content(html, "text/html");
-        }
-
-        */
-
-
     }
 }
