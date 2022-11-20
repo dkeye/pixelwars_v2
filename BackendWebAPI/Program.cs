@@ -3,7 +3,7 @@ using BackendWebAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 
-var builder = WebApplication.CreateBuilder(new WebApplicationOptions { WebRootPath = "../static" });  // изменяем папку для хранения статики
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.Configure<PixelWarsDatabaseSettings>(builder.Configuration.GetSection("PixelWarsDatabase"));

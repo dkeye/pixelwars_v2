@@ -7,34 +7,31 @@ namespace BackendWebAPI.Services
 {
     public class PixelWarsService
     {
-        private readonly IMongoCollection<Test> _PixelWarsCollectionName;
+        private readonly IMongoCollection<PixelWarsCollection> _PixelWarsCollectionName;
 
         public PixelWarsService(
-            IOptions<PixelWarsDatabaseSettings> bookStoreDatabaseSettings)
+            IOptions<PixelWarsDatabaseSettings> pixelwarsdatabasesettings)
         {
             var mongoClient = new MongoClient(
-                bookStoreDatabaseSettings.Value.ConnectionString);
+                pixelwarsdatabasesettings.Value.ConnectionString);
 
             var mongoDatabase = mongoClient.GetDatabase(
-                bookStoreDatabaseSettings.Value.DatabaseName);
+                pixelwarsdatabasesettings.Value.DatabaseName);
 
-            _PixelWarsCollectionName = mongoDatabase.GetCollection<Test>(
-                bookStoreDatabaseSettings.Value.PixelWarsCollectionName);
+            _PixelWarsCollectionName = mongoDatabase.GetCollection<PixelWarsCollection>(
+                pixelwarsdatabasesettings.Value.PixelWarsCollectionName);
         }
 
-        public async Task<List<Test>> GetAsync() =>
+        public async Task<List<PixelWarsCollection>> GetAsync() =>
             await _PixelWarsCollectionName.Find(_ => true).ToListAsync();
 
-        public async Task<Test?> GetAsync(string id) =>
+        public async Task<PixelWarsCollection?> GetAsync(string id) =>
             await _PixelWarsCollectionName.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-        public async Task CreateAsync(Test newTest) =>
+        public async Task CreateAsync(PixelWarsCollection newTest) =>
             await _PixelWarsCollectionName.InsertOneAsync(newTest);
 
-        public async Task UpdateAsync(string id, Test updatedTest) =>
+        public async Task UpdateAsync(string id, PixelWarsCollection updatedTest) =>
             await _PixelWarsCollectionName.ReplaceOneAsync(x => x.Id == id, updatedTest);
-
-        public async Task RemoveAsync(string id) =>
-            await _PixelWarsCollectionName.DeleteOneAsync(x => x.Id == id);
     }
 }

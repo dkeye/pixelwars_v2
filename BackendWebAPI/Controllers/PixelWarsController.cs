@@ -14,11 +14,11 @@ namespace BackendWebAPI.Controllers
             _pixelwarsService = pixelwarsservice;
 
         [HttpGet]
-        public async Task<List<Test>> Get() =>
+        public async Task<List<PixelWarsCollection>> Get() =>
             await _pixelwarsService.GetAsync();
 
         [HttpGet("{id:length(24)}")]
-        public async Task<ActionResult<Test>> Get(string id)
+        public async Task<ActionResult<PixelWarsCollection>> Get(string id)
         {
             var test = await _pixelwarsService.GetAsync(id);
 
@@ -31,7 +31,7 @@ namespace BackendWebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Test newTest)
+        public async Task<IActionResult> Post(PixelWarsCollection newTest)
         {
             await _pixelwarsService.CreateAsync(newTest);
 
@@ -39,7 +39,7 @@ namespace BackendWebAPI.Controllers
         }
 
         [HttpPut("{id:length(24)}")]
-        public async Task<IActionResult> Update(string id, Test updatedTest)
+        public async Task<IActionResult> Update(string id, PixelWarsCollection updatedTest)
         {
             var book = await _pixelwarsService.GetAsync(id);
 
@@ -51,21 +51,6 @@ namespace BackendWebAPI.Controllers
             updatedTest.Id = book.Id;
 
             await _pixelwarsService.UpdateAsync(id, updatedTest);
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id:length(24)}")]
-        public async Task<IActionResult> Delete(string id)
-        {
-            var test = await _pixelwarsService.GetAsync(id);
-
-            if (test is null)
-            {
-                return NotFound();
-            }
-
-            await _pixelwarsService.RemoveAsync(id);
 
             return NoContent();
         }

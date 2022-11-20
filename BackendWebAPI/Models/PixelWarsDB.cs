@@ -2,9 +2,10 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System.Text.Json.Serialization;
 
+#nullable disable
 namespace BackendWebAPI.Models
 {
-    public class Test
+    public class PixelWarsCollection
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -12,12 +13,8 @@ namespace BackendWebAPI.Models
 
         [BsonElement("Name")]
         [JsonPropertyName("Name")]
-        public string BookName { get; set; } = null!;
 
-        public decimal Price { get; set; }
-
-        public string Category { get; set; } = null!;
-
-        public string Author { get; set; } = null!;
+        public Square? square { get; set; }
+        public string? Size { get; set; }
     }
 }
