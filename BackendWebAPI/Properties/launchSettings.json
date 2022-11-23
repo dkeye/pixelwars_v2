@@ -3,7 +3,7 @@
     "BackendWebAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api",
+      "launchUrl": "Index",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -13,7 +13,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api",
+      "launchUrl": "Index",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
