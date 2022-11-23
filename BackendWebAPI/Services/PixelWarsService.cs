@@ -31,7 +31,7 @@ namespace BackendWebAPI.Services
         public async Task CreateAsync(PixelWarsCollection newTest) =>
             await _PixelWarsCollectionName.InsertOneAsync(newTest);
 
-        public async Task UpdateAsync(string id, PixelWarsCollection updatedTest) =>
-            await _PixelWarsCollectionName.ReplaceOneAsync(x => x.Id == id, updatedTest);
+        //public async Task UpdateAsync(string id, PixelWarsCollection updatedTest) =>
+        //    await _PixelWarsCollectionName.ReplaceOneAsync(x => x.Id == id, updatedTest);
     }
 }
