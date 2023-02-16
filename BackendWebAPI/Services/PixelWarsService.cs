@@ -39,15 +39,16 @@ namespace BackendWebAPI.Services
 
             var squarefilter = await _PixelWarsCollectionName.Find(collectionfilter).FirstOrDefaultAsync();
 
-            return squarefilter.Squares.FirstOrDefault(Square => Square.y == y && Square.x == x);            
+            return squarefilter.Squares.FirstOrDefault(Square => Square.y == y && Square.x == x);
         }
 
-        public async Task<UpdateResult> AddSquareByName(string name, int x, int y, string color)
+        public async Task<UpdateResult> UpdateSquareColor(string Name, int x, int y, string color)
         {
-            var filter = new BsonDocument { { "Name", name } };
+            var collectionfilter = new BsonDocument("$and", new BsonArray { new BsonDocument("Name", Name), new BsonDocument("Squares.x", x), new BsonDocument("Squares.y", y) });
 
-            return await _PixelWarsCollectionName.UpdateOneAsync(filter,              
-               new BsonDocument("$push", new BsonDocument("Squares", (new BsonDocument { { "x", x }, { "y", y }, { "color", color } }))));
+            var updatesettings = new BsonDocument("$set",new BsonDocument("Squares.$.color", color));
+
+            return await _PixelWarsCollectionName.UpdateOneAsync(collectionfilter, updatesettings);
         }
             
     }

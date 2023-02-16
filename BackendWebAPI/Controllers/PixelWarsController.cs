@@ -50,7 +50,7 @@ namespace BackendWebAPI.Controllers
         [Route("/grid/{Name}/set/square/{x}/{y}/{color}")]
         public async Task<ActionResult<Square>> SetSquareToGrid(string Name, int x, int y, string color)
         {
-            await _pixelwarsService.AddSquareByName(Name,x,y,color);
+            await _pixelwarsService.UpdateSquareColor(Name,x,y,color);
 
             var filter = await _pixelwarsService.GetSquareAsync(Name, x, y);
 
