@@ -7,7 +7,6 @@ namespace BackendWebAPI.Controllers
 
     [ApiController]
     [Route($"[controller]")]
-
     public class PixelWarsController : ControllerBase
     {
             
@@ -18,26 +17,49 @@ namespace BackendWebAPI.Controllers
 
         [HttpGet]
         public async Task<List<PixelWarsCollection>> Get() => await _pixelwarsService.GetAsync();
-
+        
         [HttpGet]
-        [Route("/grid/{index}/get/full")]
-        public ActionResult GetFullGrid(int index)
+        [Route("/grid/{Name}/get/full")]
+        public async Task<ActionResult<PixelWarsCollection>> GetFullGrid(string Name)
         {
-            return Ok();
-        }
+            var filter = await _pixelwarsService.GetByNameAsync(Name);
 
+            if (filter is null)
+            {
+                return NotFound();
+            }
+
+            return filter;
+        }
+        
         [HttpGet]
-        [Route("/grid/{index}/get/square/{X}/{Y}")]
-        public ActionResult GetCoordinateGrid(int index, int X, int Y)
+        [Route("/grid/{Name}/get/square")]
+        public async Task<ActionResult<Square>> GetSquareFromGrid(string Name, int x, int y)
         {
-            return Ok();
-        }
+            var filter = await _pixelwarsService.GetSquareAsync(Name, x, y);
 
+            if (filter is null)
+            {
+                return NotFound();
+            }
+
+            return filter;
+        }
+        
         [HttpPost]
-        [Route("/grid/{index}/set/square")]
-        public ActionResult SetGrid(int index)
+        [Route("/grid/{Name}/set/square/{x}/{y}/{color}")]
+        public async Task<ActionResult<Square>> SetSquareToGrid(string Name, int x, int y, string color)
         {
-            return Ok();
+            await _pixelwarsService.UpdateSquareColor(Name,x,y,color);
+
+            var filter = await _pixelwarsService.GetSquareAsync(Name, x, y);
+
+            if (filter is null)
+            {
+                return NotFound();
+            }     
+
+            return filter;
         }
     }
 }
