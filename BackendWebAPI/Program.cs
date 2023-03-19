@@ -27,7 +27,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
-
+/*
 app.MapGet("/login", async (HttpContext context) =>
 {
     context.Response.ContentType = "text/html; charset=utf-8";
@@ -54,7 +54,7 @@ app.MapGet("/login", async (HttpContext context) =>
     </body>
     </html>";
     await context.Response.WriteAsync(loginForm);
-});
+});*/
 
 app.MapPost("/login", async (string? returnUrl, HttpContext context) =>
 {
