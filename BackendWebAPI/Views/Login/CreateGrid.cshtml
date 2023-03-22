@@ -1,0 +1,34 @@
+﻿@model PixelWarsCollection
+
+<header>
+    <span class="logo">PixelWars</span>
+    <p>
+        <ul id="navbar">
+            <li>
+                <a href="AdminPanel">Главная</a>
+            </li>
+            <li>
+                <a href="/CreateGrid">Создать Грид</a>
+            </li>
+            <li>
+                <a href="#">Удалить Грид</a>
+            </li>
+        </ul>
+    </p>
+</header>
+
+<div class="login">
+    <h1>Create Grid</h1>
+    <form method="post" enctype="multipart/form-data" asp-controller="PixelWars" asp-action="Insert">
+        <p>
+            <input type="text" name="Name" value="" placeholder="Name For your Grid" required>
+        </p>
+        <p>
+            <input type="text" name="Size" value="" placeholder="Size For your Grid" required>
+        </p>
+        <p class="submit">
+            <input type="submit" name="commit" value="Insert">
+        </p>
+
+    </form>
+</div>

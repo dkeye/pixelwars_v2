@@ -58,8 +58,6 @@ app.MapGet("/logout", async (HttpContext context) =>
     return Results.Redirect("/login");
 });
 
-app.Map("/", [Authorize] () => $"Hello World!");
-
 
 
 // Configure the HTTP request pipeline.t
