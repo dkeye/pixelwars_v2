@@ -2,13 +2,13 @@
 {
     public class Person
     {
-        public Person(string email, string password)
+        public Person(string userName, string password)
         {
-            Email = email;
+            UserName = userName;
             Password = password;
         }
 
-        public string Email { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
 
 
