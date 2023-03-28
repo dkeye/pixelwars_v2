@@ -1,21 +1,30 @@
 ﻿@model PixelWarsCollection
 
 <header>
-    <span class="logo">PixelWars</span>
-    <p>
-        <ul id="navbar">
-            <li>
-                <a href="AdminPanel">Главная</a>
-            </li>
-            <li>
-                <a href="/CreateGrid">Создать Грид</a>
-            </li>
-            <li>
-                <a href="#">Удалить Грид</a>
-            </li>
-        </ul>
-    </p>
+    <div class='left_side_header'>
+        <span class="logo">PixelWars</span>
+        <p>
+            <ul id="navbar">
+                <li>
+                    <a href="/">Главная</a>
+                </li>
+                <li>
+                    <a href="/CreateGrid">Создать Грид</a>
+                </li>
+                <li>
+
+                    <a href="/DeleteGrid">Удалить Грид</a>
+                </li>
+            </ul>
+        </p>
+    </div>
+    <div class = 'right_top_button'>
+        <div class = "logout">
+            <a href="/logout"><p>Выход</p></a>
+        </div>
+    </div>
 </header>
+
 
 <div class="login">
     <h1>Create Grid</h1>
