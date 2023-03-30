@@ -17,8 +17,8 @@
             </ul>
         </p>
     </div>
-    <div class = 'right_top_button'>
-        <div class = "logout">
+    <div class='right_top_button'>
+        <div class="logout">
             <a href="/logout"><p>Выход</p></a>
         </div>
     </div>
@@ -26,13 +26,10 @@
 
 
 <div class="login">
-    <h1>Create Grid</h1>
-    <form method="post" enctype="multipart/form-data" asp-controller="Login" asp-action="InsertGrid">
+    <h1>Delete Grid</h1>
+    <form method="post" enctype="multipart/form-data" asp-controller="Login" asp-action="DeleteGridbyName">
         <p>
-            <input type="text" name="Name" value="" placeholder="Name For your Grid" required>
-        </p>
-        <p>
-            <input type="text" name="Size" value="" placeholder="Size For your Grid" required>
+            <input type="text" name="Name" value="" placeholder="grid name that you want to delete" required>
         </p>
 
         <p class="submit">

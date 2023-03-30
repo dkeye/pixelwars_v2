@@ -1,10 +1,8 @@
 ﻿using BackendWebAPI.Models;
 using BackendWebAPI.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
-using System;
 
 // условная бд с пользователями
 var people = new List<Person>
