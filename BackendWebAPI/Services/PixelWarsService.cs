@@ -2,9 +2,6 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
-using System.Drawing;
-using System.Text.Json;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace BackendWebAPI.Services
 {
