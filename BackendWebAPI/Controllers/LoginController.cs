@@ -52,7 +52,7 @@ namespace BackendWebAPI.Controllers
                 return NotFound();
             }
 
-            return filter;
+            return View();
         }
 
         [Route("/DeleteGrid")]
@@ -74,7 +74,7 @@ namespace BackendWebAPI.Controllers
 
             if (filter is null)
             {
-                return Ok();
+                return View();
             }
 
             return NotFound();
