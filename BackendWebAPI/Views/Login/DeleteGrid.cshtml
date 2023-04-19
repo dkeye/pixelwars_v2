@@ -1,0 +1,40 @@
+﻿@model PixelWarsCollection
+
+<header>
+    <div class='left_side_header'>
+        <span class="logo">PixelWars</span>
+        <p>
+            <ul id="navbar">
+                <li>
+                    <a href="/">Главная</a>
+                </li>
+                <li>
+                    <a href="/CreateGrid">Создать Грид</a>
+                </li>
+                <li>
+                    <a href="/DeleteGrid">Удалить Грид</a>
+                </li>
+            </ul>
+        </p>
+    </div>
+    <div class='right_top_button'>
+        <div class="logout">
+            <a href="/logout"><p>Выход</p></a>
+        </div>
+    </div>
+</header>
+
+
+<div class="login">
+    <h1>Delete Grid</h1>
+    <form method="post" enctype="multipart/form-data" asp-controller="Login" asp-action="DeleteGridbyName">
+        <p>
+            <input type="text" name="Name" value="" placeholder="grid name that you want to delete" required>
+        </p>
+
+        <p class="submit">
+            <input type="submit" name="commit" value="Insert">
+        </p>
+
+    </form>
+</div>

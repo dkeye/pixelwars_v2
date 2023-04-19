@@ -2,8 +2,6 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
-using System.Drawing;
-using System.Text.Json;
 
 namespace BackendWebAPI.Services
 {
@@ -33,23 +31,27 @@ namespace BackendWebAPI.Services
         public async Task<PixelWarsCollection?> GetByNameAsync(string name) =>
             await _PixelWarsCollectionName.Find(x => x.Name == name).FirstOrDefaultAsync();
 
-        public async Task<Square?> GetSquareAsync(string Name, int x, int y)
+        public async Task<Square?> GetSquareAsync(string name, int x, int y)
         {
-            var collectionfilter = new BsonDocument ("$and", new BsonArray { new BsonDocument("Name", Name), new BsonDocument("Squares.x",x), new BsonDocument("Squares.y", y) });
+            var collectionfilter = new BsonDocument ("$and", new BsonArray { new BsonDocument("Name", name), new BsonDocument("Squares.x",x), new BsonDocument("Squares.y", y) });
 
             var squarefilter = await _PixelWarsCollectionName.Find(collectionfilter).FirstOrDefaultAsync();
 
             return squarefilter.Squares.FirstOrDefault(Square => Square.y == y && Square.x == x);
         }
 
-        public async Task<UpdateResult> UpdateSquareColor(string Name, int x, int y, string color)
+        public async Task<UpdateResult> UpdateSquareColor(string name, int x, int y, string color)
         {
-            var collectionfilter = new BsonDocument("$and", new BsonArray { new BsonDocument("Name", Name), new BsonDocument("Squares.x", x), new BsonDocument("Squares.y", y) });
+            var collectionfilter = new BsonDocument("$and", new BsonArray { new BsonDocument("Name", name), new BsonDocument("Squares.x", x), new BsonDocument("Squares.y", y) });
 
             var updatesettings = new BsonDocument("$set",new BsonDocument("Squares.$.color", color));
 
             return await _PixelWarsCollectionName.UpdateOneAsync(collectionfilter, updatesettings);
         }
-            
+
+        public async Task InsertGridBynameAndSize(PixelWarsCollection grid) => await _PixelWarsCollectionName.InsertOneAsync(grid);
+
+        public async Task DeleteGridByName(string name) => await _PixelWarsCollectionName.DeleteOneAsync(new BsonDocument("Name",name));
+     
     }
 }
