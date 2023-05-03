@@ -2,7 +2,7 @@
 
 ### Requirements
 
-* ASP.NET Core SDK 6
+* ASP.NET Core SDK 7
 * ASP.NET Core Runtime 6
 * .NET Runtime 6
 
