@@ -23,6 +23,7 @@ builder.Services.AddMvc();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options => options.LoginPath = "/login");
 builder.Services.AddAuthorization();
+builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
 var app = builder.Build();
 
@@ -56,15 +57,8 @@ app.MapGet("/logout", async (HttpContext context) =>
     return Results.Redirect("/login");
 });
 
-
-
-// Configure the HTTP request pipeline.t
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseAuthorization();
