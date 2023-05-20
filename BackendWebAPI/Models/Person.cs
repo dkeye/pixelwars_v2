@@ -1,4 +1,6 @@
-﻿namespace BackendWebAPI.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace BackendWebAPI.Models
 {
     public class Person
     {
