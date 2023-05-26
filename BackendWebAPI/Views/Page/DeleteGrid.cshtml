@@ -1,0 +1,15 @@
+﻿@model PixelWarsCollection
+
+<div class="login">
+    <h1>Delete Grid</h1>
+    <form method="post" enctype="multipart/form-data" asp-controller="Login" asp-action="DeleteGridbyName">
+        <p>
+            <input type="text" name="Name" value="" placeholder="grid name that you want to delete" required>
+        </p>
+
+        <p class="submit">
+            <input type="submit" name="commit" value="Insert">
+        </p>
+
+    </form>
+</div>

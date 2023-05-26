@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,10 +10,26 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
 </head>
+
+<header>
+    @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+    {
+        <a href="/"> <span class="logo">PixelWars</span></a>
+
+        <navbar style="flex:auto;">            
+                <a href="/CreateGrid">Создать Грид</a>  
+                <a href="/DeleteGrid">Удалить Грид</a>            
+        </navbar>
+
+        <div class="logout">
+            <a href="/logout"><p>Выход</p></a>
+        </div>
+    }
+</header>
+
 <body>
     <main>
         @RenderBody()
     </main>
-
 </body>
 </html>

@@ -386,3 +386,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+data
+Data
+.data/*
+.Data/*
+./data/
+./Data/
