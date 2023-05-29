@@ -14,7 +14,9 @@
 <header>
     @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
     {
-        <a href="/"> <span class="logo">PixelWars</span></a>
+        <div class ="logo">
+            <a href="/">PixelWars</a>
+        </div>        
 
         <navbar style="flex:auto;">            
                 <a href="/CreateGrid">Создать Грид</a>  
@@ -22,7 +24,7 @@
         </navbar>
 
         <div class="logout">
-            <a href="/logout"><p>Выход</p></a>
+            <a href="/logout">Выход</a>
         </div>
     }
 </header>
