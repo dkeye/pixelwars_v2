@@ -22,7 +22,7 @@ services:
   backendwebapi:
     build:
       context: .
-    ports:
+    ports:      
       - 5001:80
     depends_on:
       - mongo
