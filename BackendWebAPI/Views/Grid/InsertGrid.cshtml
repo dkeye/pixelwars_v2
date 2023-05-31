@@ -1,0 +1,20 @@
+﻿@model PixelWarsGrid
+
+<div class="login">
+    <h1>Create Grid</h1>
+    <form method="post" enctype="multipart/form-data" asp-controller="Grid" asp-action="InsertGridbyName">
+        <p>
+            <input type="text" name="Name" value="" placeholder="Name For your Grid" required>
+        </p>
+        <p>
+            <input type="text" name="X" value="" placeholder="Number of squares on the X-axis" required>
+        </p>
+        <p>
+            <input type="text" name="Y" value="" placeholder="Number of squares on the Y-axis" required>
+        </p>
+        <p class="submit">
+            <input type="submit" name="commit" value="Insert">
+        </p>
+
+    </form>
+</div>
