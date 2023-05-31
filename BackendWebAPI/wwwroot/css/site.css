@@ -16,65 +16,62 @@ a:active {
     text-decoration: none;
 }
 
+header {
+    display: flex;
+}
+
 body {
     font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
     color: #000000;
     background: #000000;
 }
 
-
 .logo {
-    font-family: 'Common Pixel', sans-serif;
-    font-weight: 300;
-    font-size: 35px;
-    top: 50px;
-    width: 100%;
-    color: white;
+    display: flex;
+    align-items: center;    
 }
 
+    .logo a {
+        color: white;
+        padding: 5px;
+        font-size: 35px;
+        font-family: 'Common Pixel', sans-serif;
+    }
+
 .logout {
-    padding: 0.5rem 1rem;
-    width: 45px;
-    height: 20px;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    align-items : center
 }
 
     .logout a {
-        font-weight: 900;
-        font: Pentapixel 13px /20px "Pentapixel";
-        text-decoration: none;
         color: white;
+        padding: 10px;
+        text-decoration: none;
+        font-weight: bold;
     }
 
-.logout :hover{
-    cursor : pointer;    
-}
+    .logout :hover {
+        background-color: white;
+        color: black;
+    }
 
-#navbar {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    width: 110px;
-}
-
-header {
+navbar {
     display: flex;
-    justify-content: space-between;
+    align-items: center
 }
 
-#navbar a {
-    background-color: #000000;
-    color: white;
-    padding: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    border-left: 1px solid #000000;
-    border-top: 10px;
-    border-bottom: 10px;
-    display: block;
-}
+    navbar a {
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+        font-weight: bold;        
+    }
+
+    navbar :hover {
+        background-color : white;
+        color : black;
+    }
+
 
 .SuccessForm {
     display: flex;
@@ -90,8 +87,6 @@ header {
     width: 310px;
     background: white;
     border-radius: 3px;
-    -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
     .login:before {

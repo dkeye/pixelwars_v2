@@ -16,11 +16,11 @@ namespace BackendWebAPI.Controllers
             _pixelwarsService = pixelwarsService;
 
         [HttpGet]
-        public async Task<List<PixelWarsCollection>> Get() => await _pixelwarsService.GetAsync();
+        public async Task<List<PixelWarsGrid>> Get() => await _pixelwarsService.GetAsync();
         
         [HttpGet]
         [Route("/grid/{Name}/get/full")]
-        public async Task<ActionResult<PixelWarsCollection>> GetFullGrid(string Name)
+        public async Task<ActionResult<PixelWarsGrid>> GetFullGrid(string Name)
         {
             var filter = await _pixelwarsService.GetByNameAsync(Name);
 

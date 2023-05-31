@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackendWebAPI.Controllers
 {
-    public class PageController : Controller
+    public class GridController : Controller
     {
         private readonly PixelWarsService _pixelwarsService;
-        public PageController(PixelWarsService pixelwarsService) => _pixelwarsService = pixelwarsService;
+        public GridController(PixelWarsService pixelwarsService) => _pixelwarsService = pixelwarsService;
 
         [Route("/")]
         [Authorize]
@@ -21,7 +21,7 @@ namespace BackendWebAPI.Controllers
         [Route("/CreateGrid")]
         [Authorize]
         [HttpGet]
-        public IActionResult CreateGrid()
+        public IActionResult InsertGrid()
         {
             return View();
         }
@@ -29,13 +29,9 @@ namespace BackendWebAPI.Controllers
         [Route("/InsertGrid")]
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult<PixelWarsCollection>> InsertGrid(string name, string size)
+        public async Task<ActionResult<PixelWarsGrid>> InsertGridByName(string name, uint x, uint y)
         {
-            var insertValues = new PixelWarsCollection();
-            insertValues.Name = name;
-            insertValues.Size = size;
-
-            await _pixelwarsService.InsertGridBynameAndSize(insertValues);
+            await _pixelwarsService.GenerateGrid(name, x, y);
 
             var filter = await _pixelwarsService.GetByNameAsync(name);
 
@@ -58,7 +54,7 @@ namespace BackendWebAPI.Controllers
         [Route("/DeleteGridbyName")]
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult<PixelWarsCollection>> DeleteGridbyName(string name)
+        public async Task<ActionResult<PixelWarsGrid>> DeleteGridbyName(string name)
         {
             await _pixelwarsService.DeleteGridByName(name);
 
