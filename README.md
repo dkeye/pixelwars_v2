@@ -2,9 +2,9 @@
 
 ### Requirements
 
-* ASP.NET Core SDK 6
-* ASP.NET Core Runtime 6
-* .NET Runtime 6
+* ASP.NET Core SDK 7
+* ASP.NET Core Runtime 7
+* .NET Runtime 7
 
 [Windows](https://learn.microsoft.com/ru-ru/dotnet/core/install/windows)
 [Linux](https://learn.microsoft.com/ru-ru/dotnet/core/install/linux/)
