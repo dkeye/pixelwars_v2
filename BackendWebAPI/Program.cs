@@ -3,6 +3,7 @@ using BackendWebAPI.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using Prometheus;
 
 // условная бд с пользователями
 var people = new List<Person>
@@ -62,6 +63,8 @@ app.UseSwaggerUI();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseMetricServer();
+app.UseHttpMetrics();
 app.MapControllers();
 
 app.Run();
