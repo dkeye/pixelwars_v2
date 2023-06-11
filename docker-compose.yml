@@ -16,6 +16,10 @@ services:
     restart: always
     ports:
       - 9090:9090
+    volumes:
+      - ./prometheus:/ect/prometheus
+      - prometheus-data:/prometheus
+    command: --web.enable-lifecycle --config.file=/ect/prometheus/prometheus.yml
 
   grafana:
     image: grafana/grafana
@@ -42,4 +46,7 @@ services:
       - 5001:80
     depends_on:
       - mongo
+
+volumes:
+  prometheus-data:
 
